@@ -1,10 +1,7 @@
 package com.heisenberg.shopcart.service;
 
 import com.heisenberg.shopcart.dao.ItemsRepository;
-import com.heisenberg.shopcart.models.Item;
-import com.heisenberg.shopcart.models.PurchasedItemCompact;
-import com.heisenberg.shopcart.models.PurchasedItemDetails;
-import com.heisenberg.shopcart.models.Receipt;
+import com.heisenberg.shopcart.models.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,6 +26,16 @@ public class ItemsService{
         return (List<Item>) itemsRepository.findAll();
     }
 
+    public void changePriceByID(ModifyPrice modifyPrice){
+        Optional<Item> optional = itemsRepository.findById(modifyPrice.getId());
+        if(!optional.isPresent()){
+            return;
+        }
+        Item item = optional.get();
+        item.setPrice(modifyPrice.getPrice());
+        addItem(item);
+    }
+
     public Receipt generateReceipt(List<PurchasedItemCompact> items){
         Receipt receipt = new Receipt();
         for(PurchasedItemCompact itemCompact:items){
@@ -38,5 +45,9 @@ public class ItemsService{
                             new PurchasedItemDetails(item1, itemCompact.getQuantity())));
         }
         return receipt;
+    }
+
+    public void deleteByID(int id){
+        itemsRepository.deleteById(id);
     }
 }
