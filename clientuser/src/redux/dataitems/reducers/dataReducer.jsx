@@ -53,7 +53,8 @@ export const dataReducer = (state = initialState, action) => {
       }
       return {
         ...state,
-        selected: selectedItems
+        selected: selectedItems,
+        showReceipt: false
       };
     case CHECKOUT_REQUEST:
       return {

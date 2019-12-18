@@ -10,7 +10,7 @@ class Receipt extends Component {
     return display ? (
       <div>
         <h1>Receipt</h1>
-        <div>
+        <div className="border border-primary">
           {items.map(item => (
             <div>
               <span>{item.item.name} - </span>
@@ -19,8 +19,8 @@ class Receipt extends Component {
               <span>{item.netPrice}</span>
             </div>
           ))}
+          <h3> Total Amount - {totAmount}</h3>
         </div>
-        <h3> Total Amount - {totAmount}</h3>
       </div>
     ) : (
       ""
