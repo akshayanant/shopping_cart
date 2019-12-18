@@ -35,9 +35,10 @@ export const checkoutRequest = () => {
   };
 };
 
-export const checkoutSuccess = () => {
+export const checkoutSuccess = receipt => {
   return {
-    type: CHECKOUT_SUCCESS
+    type: CHECKOUT_SUCCESS,
+    payload: receipt
   };
 };
 
@@ -55,11 +56,6 @@ export const fetchItems = () => {
 export const checkout = selectedItems => {
   return dispatch => {
     dispatch(checkoutRequest());
-    console.log(
-      JSON.stringify({
-        selectedItems
-      })
-    );
     fetch(checkoutURL, {
       method: "post",
       headers: { "Content-Type": "application/json" },
@@ -68,11 +64,11 @@ export const checkout = selectedItems => {
       })
     })
       .then(response => {
-        dispatch(checkoutSuccess());
         return response.json();
       })
       .then(data => {
         console.log(data);
+        dispatch(checkoutSuccess(data));
       });
   };
 };

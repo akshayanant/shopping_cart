@@ -7,6 +7,7 @@ class ItemsList extends Component {
   render() {
     return (
       <div>
+        <h1>Items List</h1>
         {this.props.items.map(item => (
           <Item key={item.id} item={item}></Item>
         ))}

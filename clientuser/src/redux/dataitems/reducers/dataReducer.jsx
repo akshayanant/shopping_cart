@@ -9,7 +9,12 @@ import {
 const initialState = {
   isLoading: false,
   items: [],
-  selected: []
+  selected: [],
+  showReceipt: false,
+  receipt: {
+    purchasedItemDetails: [],
+    totalAmount: 0
+  }
 };
 
 export const dataReducer = (state = initialState, action) => {
@@ -25,7 +30,9 @@ export const dataReducer = (state = initialState, action) => {
       return {
         ...state,
         items: data,
-        isLoading: false
+        isLoading: false,
+        receipt: {},
+        showReceipt: false
       };
 
     case ADD_TO_CART:
@@ -56,10 +63,13 @@ export const dataReducer = (state = initialState, action) => {
 
     case CHECKOUT_SUCCESS:
       let cleared = [];
+      const receipt = action.payload;
       return {
         ...state,
         selected: cleared,
-        isLoading: false
+        isLoading: false,
+        showReceipt: true,
+        receipt: receipt
       };
 
     default:

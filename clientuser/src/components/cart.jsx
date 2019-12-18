@@ -6,7 +6,7 @@ class Cart extends Component {
   render() {
     return (
       <div>
-        <p>Cart</p>
+        <h1>Cart</h1>
         {this.props.selected.map(item => (
           <div>
             <span>{item.name} - </span>
