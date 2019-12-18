@@ -1,10 +1,18 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import Container from "./components/user/container";
+import { Provider } from "react-redux";
+import { store } from "./redux/store";
+import Container from "./components/container";
 
 function App() {
-  return <Container />;
+  return (
+    <Provider store={store}>
+      <div>
+        <Container />
+      </div>
+    </Provider>
+  );
 }
 
 export default App;

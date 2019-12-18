@@ -3,6 +3,7 @@ package com.heisenberg.shopcart.controller;
 import com.heisenberg.shopcart.models.Item;
 import com.heisenberg.shopcart.models.PurchasedItemCompact;
 import com.heisenberg.shopcart.models.Receipt;
+import com.heisenberg.shopcart.models.SelectedItems;
 import com.heisenberg.shopcart.resources.JSONConverter;
 import com.heisenberg.shopcart.service.ItemsService;
 import jdk.nashorn.internal.parser.JSONParser;
@@ -28,8 +29,8 @@ public class ShoppingCartUserController {
         return itemsService.getAll();
     }
 
-    @GetMapping(path = "/checkout")
-    public String generateReceipt(@RequestBody List<PurchasedItemCompact> items){
-        return JSONConverter.toJSON(itemsService.generateReceipt(items));
+    @PostMapping(path = "/checkout")
+    public String generateReceipt(@RequestBody SelectedItems items){
+        return JSONConverter.toJSON(itemsService.generateReceipt(items.getSelected()));
     }
 }
