@@ -13,7 +13,7 @@ public class PurchasedItemDetails {
     public PurchasedItemDetails(Item item,int quantity) {
         this.item = item;
         this.quantity = quantity;
-        this.netPrice = item.getPrice()*quantity;
+        this.netPrice = trimDecimal(item.getPrice()*quantity);
     }
 
     public double getNetPrice() {
@@ -36,5 +36,8 @@ public class PurchasedItemDetails {
                 + quantity
                 + ", netPrice="
                 + netPrice + "]";
+    }
+    private double trimDecimal(double num){
+        return Double.parseDouble(new java.text.DecimalFormat("0.00").format(num));
     }
 }

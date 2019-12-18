@@ -23,6 +23,10 @@ public class Receipt {
         return purchasedItemDetails;
     }
 
+    public void setTotalAmount(double totalAmount) {
+        this.totalAmount = totalAmount;
+    }
+
     public double getTotalAmount() {
         return totalAmount;
     }

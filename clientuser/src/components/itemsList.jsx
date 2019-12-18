@@ -24,7 +24,6 @@ class ItemsList extends Component {
             <Spinner />
           </div>
         )}
-        <button onClick={this.props.fetchItems}>Load Data</button>
       </div>
     );
   }
@@ -37,9 +36,4 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    fetchItems: () => dispatch(fetchItems())
-  };
-};
-export default connect(mapStateToProps, mapDispatchToProps)(ItemsList);
+export default connect(mapStateToProps, null)(ItemsList);

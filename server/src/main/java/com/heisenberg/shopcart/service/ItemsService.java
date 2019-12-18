@@ -38,7 +38,7 @@ public class ItemsService{
 
     public Receipt generateReceipt(List<PurchasedItemCompact> items){
         Receipt receipt = new Receipt();
-        for(PurchasedItemCompact itemCompact:items){
+        for(PurchasedItemCompact itemCompact:items) {
             Optional<Item> item = itemsRepository.findById(itemCompact.getId());
             item.ifPresent(item1 ->
                     receipt.addItem(
@@ -50,4 +50,6 @@ public class ItemsService{
     public void deleteByID(int id){
         itemsRepository.deleteById(id);
     }
+
+
 }

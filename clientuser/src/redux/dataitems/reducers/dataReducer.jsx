@@ -14,7 +14,9 @@ const initialState = {
   receipt: {
     purchasedItemDetails: [],
     totalAmount: 0
-  }
+  },
+  cart: false,
+  cartCount: 0
 };
 
 export const dataReducer = (state = initialState, action) => {
@@ -51,15 +53,19 @@ export const dataReducer = (state = initialState, action) => {
         item.quantity = 1;
         selectedItems.push(item);
       }
+      let count = selectedItems.length;
       return {
         ...state,
         selected: selectedItems,
-        showReceipt: false
+        showReceipt: false,
+        cart: true,
+        cartCount: count
       };
     case CHECKOUT_REQUEST:
       return {
         ...state,
-        isLoading: true
+        isLoading: true,
+        cart: false
       };
 
     case CHECKOUT_SUCCESS:
