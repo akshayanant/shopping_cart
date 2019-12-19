@@ -10,9 +10,8 @@ class NavBar extends Component {
     const count = this.props.count;
     return (
       <nav>
-        <h3>Let's Shop</h3>
-
         <ul className="nav-links">
+          <h3>Let's Shop</h3>
           <Link className="link-style" to="/">
             <li>Home</li>
           </Link>
@@ -21,7 +20,7 @@ class NavBar extends Component {
             <li>
               <button
                 type="button"
-                class="btn-outline-info"
+                class="btn btn-primary"
                 onClick={this.props.fetchItems}
               >
                 Shop
@@ -30,7 +29,7 @@ class NavBar extends Component {
           </Link>
           <Link className="link-style" to="/cart">
             <li>
-              <button type="button" class="btn-outline-info">
+              <button type="button" class="btn btn-primary">
                 My Cart
                 {!cartNotify ? (
                   ""

@@ -28,7 +28,11 @@ public class Receipt {
     }
 
     public double getTotalAmount() {
-        return totalAmount;
+        return trimDecimal(totalAmount);
+    }
+
+    private double trimDecimal(double num){
+        return Double.parseDouble(new java.text.DecimalFormat("0.00").format(num));
     }
 
     @Override

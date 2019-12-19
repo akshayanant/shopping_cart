@@ -14,7 +14,7 @@ class Item extends Component {
           {this.props.item.price}
         </h1>
         <button
-          className="btn btn-primary btn-sm"
+          className="btn btn-outline-success"
           onClick={() => this.props.addToCart(this.props.item)}
         >
           Add To Cart

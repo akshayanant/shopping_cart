@@ -18,7 +18,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path = "shoppingcart/user/home")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
 public class ShoppingCartUserController {
 
     @Autowired

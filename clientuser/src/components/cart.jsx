@@ -9,7 +9,6 @@ class Cart extends Component {
     const items = this.props.selected;
     return (
       <div>
-        <h1>Cart</h1>
         <div className="list-group">
           {items.map(item => (
             <a className="list-group-item list-group-item-action">

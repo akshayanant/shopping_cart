@@ -11,13 +11,14 @@ class Receipt extends Component {
     const display = this.props.display;
     return display ? (
       <div>
-        <h1>Receipt</h1>
+        <h3>Receipt</h3>
         <div className="d-flex align-items center justify-content-around">
           <span>Item Name </span>
           <span>Price </span>
           <span>Quantity </span>
           <span>Net Price</span>
         </div>
+        <hr></hr>
         <div className="border border-primary list-group">
           {items.map(item => (
             <div className="d-flex align-items center justify-content-around">
@@ -32,7 +33,7 @@ class Receipt extends Component {
             </div>
           ))}
           <div className="d-flex align-items right justify-content-around">
-            <h3> Total Amount - {totAmount}</h3>
+            <h5> Total Amount : {totAmount}</h5>
           </div>
         </div>
         <div className="d-flex align-items right justify-content-around">

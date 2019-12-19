@@ -10,7 +10,6 @@ class ItemsList extends Component {
     const loading = this.props.isLoading;
     return (
       <div>
-        <h1> Items</h1>
         {!loading ? (
           <div className="list-group">
             {items.map(item => (
