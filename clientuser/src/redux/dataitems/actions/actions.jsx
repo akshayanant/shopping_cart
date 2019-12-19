@@ -6,8 +6,8 @@ import {
   CHECKOUT_SUCCESS
 } from "./actionTypes";
 
-const url = "http://localhost:8080/shoppingcart/user/home/getitems";
-const checkoutURL = "http://localhost:8080/shoppingcart/user/home/checkout";
+const url = "http://192.168.0.8:8080/shoppingcart/user/home/getitems";
+const checkoutURL = "http://192.168.0.8:8080/shoppingcart/user/home/checkout";
 
 const fetchItemsRequest = () => {
   return {
