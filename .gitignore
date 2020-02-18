@@ -102,3 +102,6 @@ dist
 
 # TernJS port file
 .tern-port
+server/src/main/resources/application.properties
+clientuser/src/redux/utils/constants.js
+server/src/main/resources/application.properties

@@ -5,6 +5,11 @@ import {
   CHECKOUT_REQUEST,
   CHECKOUT_SUCCESS
 } from "./actionTypes";
+import {
+  HOST_URL,
+  GET_ITEMS_ENDPOINT,
+  CHECKOUT_ENDPOINT
+} from "./../../utils/constants";
 
 const url = "http://192.168.0.8:8080/shoppingcart/user/home/getitems";
 const checkoutURL = "http://192.168.0.8:8080/shoppingcart/user/home/checkout";
@@ -45,7 +50,7 @@ export const checkoutSuccess = receipt => {
 export const fetchItems = () => {
   return dispatch => {
     dispatch(fetchItemsRequest());
-    fetch(url)
+    fetch(HOST_URL + GET_ITEMS_ENDPOINT)
       .then(response => response.json())
       .then(data => {
         dispatch(fetchItemsSuccess(data));
@@ -56,7 +61,7 @@ export const fetchItems = () => {
 export const checkout = selectedItems => {
   return dispatch => {
     dispatch(checkoutRequest());
-    fetch(checkoutURL, {
+    fetch(HOST_URL + CHECKOUT_ENDPOINT, {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
